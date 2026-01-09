@@ -18,5 +18,17 @@ function getComputerChoice() {
 }
 
 
+// Step 3: Human choice logic:
+
+// CALL prompt to receive human choice, between rock, paper, scissors.
+// Return the choice.
+
+function getHumanChoice() {
+    let choice = prompt("Please enter your choice: 'rock', 'paper' or 'scissors'?");
+    return choice.toLowerCase();
+}
+
 //Debug
 console.log(getComputerChoice());
+
+console.log(getHumanChoice());
