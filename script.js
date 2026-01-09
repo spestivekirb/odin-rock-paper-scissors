@@ -28,7 +28,85 @@ function getHumanChoice() {
     return choice.toLowerCase();
 }
 
-//Debug
-console.log(getComputerChoice());
+// Step 4: Score variables: Global and init to 0
 
-console.log(getHumanChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+// Step 5: Single round logic:
+
+// Compare humanChoice and comptuerChoice.
+// IF humanChoice == X, THEN either WIN, DRAW, TIE.
+// IF win, 'You win! ${humanChoice} beats ${computerChoice}'
+// ditto for lose but invert order at end.
+// For tie, say 'Tie! The computer also chose ${computerChoice}'
+
+
+function playRound(humanChoice, computerChoice) {
+    let result;
+    switch(humanChoice) {
+        
+        case "rock":    
+            switch(computerChoice) {
+                case "rock":
+                    result = "tie";
+                    break;
+                case "paper":
+                    result = "lose";
+                    break;
+                case "scissors":
+                    result = "win";
+                    break;
+            }
+
+            break;
+        case "paper":
+                switch(computerChoice) {
+                case "rock":
+                    result = "win";
+                    break;
+                case "paper":
+                    result = "tie";
+                    break;
+                case "scissors":
+                    result = "lose";
+                    break;
+                }
+            break;
+
+        case "scissors":
+                switch(computerChoice) {
+                case "rock":
+                    result = "lose";
+                    break;
+                case "paper":
+                    result = "win";
+                    break;
+                case "scissors":
+                    result = "tie";
+                    break;
+            break;
+        }
+
+    }
+
+
+
+    if (result == "win") {
+        console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
+        humanScore++;
+    } else if (result == "lose") {
+        console.log(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
+        computerScore++;
+    } else {
+        console.log(`Tie! The computer also chose ${computerChoice}`);
+    }
+}
+
+
+//Debug
+//console.log(getComputerChoice());
+
+//console.log(getHumanChoice());
+
+console.log(playRound(getHumanChoice(), getComputerChoice()), humanScore, computerScore);
