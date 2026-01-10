@@ -123,16 +123,40 @@ function getHumanChoice() {
 
         }
 
-
+        scoreboard = document.querySelector("#score");
+        round = document.querySelector("#round")
 
         if (result == "win") {
-            console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`);
+            round.textContent = `You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
             humanScore++;
         } else if (result == "lose") {
-            console.log(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`);
+            round.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
             computerScore++;
         } else {
-            console.log(`Tie! The computer also chose ${computerChoice}`);
+            round.textContent = `Tie! The computer also chose ${computerChoice}`;
+        }
+
+        scoreboard.textContent = `Your score: ${humanScore} | Computer score: ${computerScore}`;
+        final = document.querySelector("#final");
+
+        select_text = document.querySelector("h2");
+        select_button = document.querySelectorAll("button");
+        if (humanScore === 5) {
+            select_text.remove();
+            for (let ob of select_button) {
+                ob.remove();
+            }
+            final.textContent = "You win the game!";
+            
+        }
+
+        if (computerScore === 5) {
+            select_text.remove();
+            for (let ob of select_button) {
+                ob.remove();
+            }
+            final.textContent = "You lose the game!";
+
         }
     }
 
@@ -140,9 +164,9 @@ function getHumanChoice() {
     paper = document.querySelector("#paper");
     scissors = document.querySelector("#scissors");
 
-    rock.addEventListener("click", () => console.log(playRound("rock", getComputerChoice())));
-    paper.addEventListener("click", () => console.log(playRound("paper", getComputerChoice())));
-    scissors.addEventListener("click", () => console.log(playRound("scissors", getComputerChoice())));
+    rock.addEventListener("click", () => (playRound("rock", getComputerChoice())));
+    paper.addEventListener("click", () => (playRound("paper", getComputerChoice())));
+    scissors.addEventListener("click", () => (playRound("scissors", getComputerChoice())));
 
 
 
