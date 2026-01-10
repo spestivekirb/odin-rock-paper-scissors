@@ -35,8 +35,33 @@ function getHumanChoice() {
 
 // Step 4 and 5 code moved in here
 
-function playGame() {
+//function playGame() {
     // Step 4: Score variables: Global and init to 0
+
+
+
+// FOR i in range 5
+//  Run round
+//  Display current score
+// ENDFOR
+// Declare winner.
+
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(getHumanChoice(), getComputerChoice());
+    //     console.log(`Your score: ${humanScore}. Computer score: ${computerScore}`);
+    // }
+
+    // if (humanScore > computerScore) {
+    //     console.log("You win the game!");
+    // } else if (computerScore > humanScore) {
+    //     console.log ("You lose the game!");
+    // } else {
+    //     console.log("It's a tie!");
+    // }
+
+ 
+
+//}
 
     let humanScore = 0;
     let computerScore = 0;
@@ -111,28 +136,15 @@ function playGame() {
         }
     }
 
+    rock = document.querySelector("#rock");
+    paper = document.querySelector("#paper");
+    scissors = document.querySelector("#scissors");
 
-// FOR i in range 5
-//  Run round
-//  Display current score
-// ENDFOR
-// Declare winner.
-
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log(`Your score: ${humanScore}. Computer score: ${computerScore}`);
-    }
-
-    if (humanScore > computerScore) {
-        console.log("You win the game!");
-    } else if (computerScore > humanScore) {
-        console.log ("You lose the game!");
-    } else {
-        console.log("It's a tie!");
-    }
+    rock.addEventListener("click", () => console.log(playRound("rock", getComputerChoice())));
+    paper.addEventListener("click", () => console.log(playRound("paper", getComputerChoice())));
+    scissors.addEventListener("click", () => console.log(playRound("scissors", getComputerChoice())));
 
 
-}
 
 
 
